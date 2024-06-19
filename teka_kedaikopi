@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+
+import random
+
+def main():
+    """Start a coffee shop guessing game."""
+    print("Guess the coffee shop!")
+    
+    coffee = [
+        "zuss",
+        "gigi coffee",
+        "starbuck",
+        "biji kupi",
+        "arau kopi",
+        "arabian coffee",
+        "rumah kupi"
+    ]
+
+    #pilihan jawapan
+    print ("==================================================")
+    print ("Choose the answer\nzuss\ngigi coffee\nstarbuck\nbiji kupi\narau kopi\narabian coffee \nrumah kupi\n")
+   
+    x =random.choice(coffee)
+    max_trials= 4
+    trial=0
+    guess = None
+    
+    while trial<max_trials:
+        guess = str(input("What coffee shop are we thinking of? "))
+        
+        if x == guess:
+            print(f"You guessed {guess}. Congratulations you got it right!")
+            break
+        else:
+            print(f"Unfortunately, {guess} is the wrong answer.")
+            print(f"You have {max_trials} chances remaining.")
+            max_trials -= 1
+        if max_trials == 0:
+            print(f"You're out of attempts. The coffee shop is actually {x}.")
+        
+main()
